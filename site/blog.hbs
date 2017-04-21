@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/{{file}}.css" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <div class="main">
+      {{#if posts}}
+        <div class="blog-list">
+          {{#each posts}}
+            <div class="blog-item">
+              <span class="blog-date">{{this.date}}</span>
+              <a class="blog-link nav" href="/blog/{{this.id}}" >{{this.name}}</a>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if post}}
+        <div class="blog-post">
+          <h3 class="blog-name" >{{post.name}}</h3>
+          <h5 class="blog-date" >{{post.date}}</h5>
+          <div class="blog-content" >{{post.content}}</div>
+        </div>
+      {{/if}}
+
+      <div class="back">
+        <span class="nav" onclick="window.history.back()">back<span>
+      </div>
+    </div>
+  </body>
+</html>

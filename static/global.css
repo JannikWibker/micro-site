@@ -1,0 +1,83 @@
+/*@font-face {
+  font-family: "Menlo";
+  src: url("/static/font/Menlo-Regular.ttf");
+}*/
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,500');
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, SFNS Display, Segoe UI, Raleway, Menlo, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, monospace, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.nav, span.nav {
+  border-radius: 5px;
+  padding: 4px 10px;
+  color: #454545;
+  cursor: pointer;
+}
+
+a.nav:hover, span.nav:hover {
+  background-color: #efefef;
+}
+
+.main .back {
+  width: 140px;
+  text-align: right;
+  position: relative;
+  display: inline-block;
+  margin-right: 30px;
+  color: #454545;
+  font-family: Menlo;
+  font-size: 15px;
+}
+
+.main .back span {
+  position: relative;
+  left: 10px;
+}
+
+@media (max-width: 500px) {
+  .main .back {
+    width: 120px;
+  }
+}
+
+h1 {
+  color: #000;
+  font-size: 24px;
+}
+
+h3 {
+  color: #333;
+  font-size: 18px;
+  margin: 8px 0px;
+}
+
+h5 {
+  position: relative;
+  margin: 8px 0px;
+  font-weight: 300;
+  color: #999;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1;
+}
+th:first-child, td:first-child {
+  padding-left: 0;
+}
+th:last-child, td:last-child {
+  padding-right: 0;
+}
+tr.name > td, tr > td.name {
+  font-weight: 600;
+}

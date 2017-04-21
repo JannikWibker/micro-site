@@ -1,0 +1,56 @@
+.main {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.main a {
+  font-size: 15px;
+  margin: 0px 5px;
+}
+
+.i_am_name {
+  position: relative;
+  bottom: 35vh;
+  text-align: center;
+  font-family: 'SFNS Display', 'Raleway', 'Roboto', 'Noto', 'Lato', 'Menlo', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', monospace, sans-serif;
+}
+.i_am_name > h2 {
+  display: inline-block;
+  font-weight: 200;
+  margin: 0px 12px 0px 8px;
+  font-size: 30px;
+  line-height: 64px;
+  vertical-align: text-top;
+  word-spacing: 6px;
+}
+
+.i_am_name > h1 {
+  display: inline-block;
+  font-weight: 200;
+  margin: 0px 0px 0px 0px;
+  font-size: 56px;
+  line-height: 64px;
+  vertical-align: text-top;
+}
+
+.i_am_name > h1::after, .i_am_name > h1::before {
+  content: "„";
+  height: 20px;
+  font-weight: 200;
+  margin: 0px 8px;
+  position: relative;
+  font-size: 28px;
+  line-height: 0px;
+}
+
+.i_am_name > h1::after {
+  top: -54px;
+}
+
+.i_am_name > h1::before {
+  top: 10px;
+}

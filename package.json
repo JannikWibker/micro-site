@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "start": "micro index.js"
+  },
+  "dependencies": {
+    "fs-promise": "^2.0.2",
+    "handlebars": "^4.0.6",
+    "micro": "^7.3.2",
+    "microrouter": "^2.1.0",
+    "mime-types": "^2.1.15"
+  },
+  "name": "micro-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

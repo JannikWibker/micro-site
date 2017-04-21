@@ -1,0 +1,26 @@
+.main {
+  position: absolute;
+  bottom: 30px;
+}
+
+.about {
+  margin-bottom: 30px;
+  margin-left: 60px;
+  margin-right: 30px;
+}
+
+.about > div > * {
+  margin-left: 8px;
+}
+
+.about > div > p,
+.about > div > div,
+.about > div > span,
+.about > div > a,
+.about > div > h1,
+.about > div > h2,
+.about > div > h3,
+.about > div > h4,
+.about > div > h5 {
+  margin-left: 0px;
+}
