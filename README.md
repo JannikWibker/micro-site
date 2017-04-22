@@ -37,7 +37,7 @@ return {
 // index.js
 const { ..., page } = routes(send, sendhbs, () => posts)
 
-module.exports = (update) => ({
+module.exports = (update, stop) => ({
   port: port,
   router: router(
     ...,
