@@ -6,6 +6,7 @@ const hbs = require('handlebars')
 const mime = require('mime-types')
 
 const routes = require('./routes.js')
+const _site_ = require('./lib/_site.js')
 
 const sendhbs_ = require('./lib/sendhbs.js')
 const _static_ = require('./lib/static.js')
@@ -29,6 +30,7 @@ let posts = []
 const start = async(dir) => {
   console.log('start fn call')
   files.push('_document.hbs', '_error.hbs')
+  files.push(...['_site/index.hbs'])
   posts = JSON.parse(await fsp.readFile('./posts.json'))
   files.forEach(async (file, i) =>
     compiled_files[dir + '/' + file] =
@@ -56,6 +58,8 @@ const sendhbs = sendhbs_(send, notfound, compiled_files, dir)
 // #### all routes from './routes.js'
 const { index, blog, blog_post, about } = routes(send, sendhbs, () => posts)
 
+const _site = _site_(send, sendhbs, () => posts)
+
 // ### starting micro programmatically
 module.exports = (reload, stop) => ({
   port: port,
@@ -68,8 +72,10 @@ module.exports = (reload, stop) => ({
     get('/blog/:id', blog_post),
     get('/about', about),
     get('/' + static_dir + '/*', _static),
-    get('/_site/reload', (res, req) => { reload();return 'reloaded'}),
-    get('/_site/stop', (res, req) => { stop();return 'stopped'}),
+    get('/_site/reload', (res, req) => _site.reload(res, req, reload)),
+    get('/_site/stop', (res, req) => _site.stop(res, req, stop)),
+    get('/_site/', _site.index),
+    get('/_site/index', _site.index),
     get('/*', notfound)
   ),
 })
