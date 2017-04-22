@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "micro index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "fs-promise": "^2.0.2",

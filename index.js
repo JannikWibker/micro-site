@@ -1,4 +1,5 @@
-const { send } = require('micro')
+const micro = require('micro')
+const send = micro.send
 const { router, get } = require('microrouter')
 const fsp = require('fs-promise')
 const hbs = require('handlebars')
@@ -18,12 +19,15 @@ const static_dir = 'static'
 const files = [
   'index.hbs', 'about.hbs', 'blog.hbs'
 ]
+// ### port
+const port = process.argv[2] || process.env.PORT || 3000
 
 let compiled_files = {}
 let posts = []
 
 // #### start fn: loads the the files and saves the data to variables
 const start = async(dir) => {
+  files.push('_document.hbs', '_error.hbs')
   posts = JSON.parse(await fsp.readFile('./posts.json'))
   files.forEach(async (file, i) =>
     compiled_files[dir + '/' + file] =
@@ -34,7 +38,12 @@ start(dir)
 
 // #### 404 page
 const notfound = async (req, res) => {
-  send(res, 404, '404 - page not found')
+  sendhbs(res, '/_error.hbs', {
+    title: 'error',
+    file: '_error',
+    error_code: '404',
+    error_message: 'page not found',
+  }, false)
 }
 
 // #### static files
@@ -43,11 +52,13 @@ const _static = _static_(send, fsp, mime)
 // #### sending and rendering handlebars (.hbs) files
 const sendhbs = sendhbs_(send, notfound, compiled_files, dir)
 
+
+
 // #### all routes from './routes.js'
 const { index, blog, blog_post, about } = routes(send, sendhbs, () => posts)
 
-// ### exporting routes
-module.exports = router(
+// ### starting micro programmatically
+const server = micro(router(
   get('/', index),
   get('/index', index),
   get('/blog', blog),
@@ -55,4 +66,6 @@ module.exports = router(
   get('/about', about),
   get('/' + static_dir + '/*', _static),
   get('/*', notfound)
-)
+)).listen(port, () => {
+  console.log('Server started on port ' + port)
+})

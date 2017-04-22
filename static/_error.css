@@ -1,0 +1,40 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, SFNS Display, Segoe UI, Raleway, Menlo, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, monospace, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.error_container {
+  color: #000;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  /*fontFamily: '-apple-system, "SF UI Text", "Helvetica Neue", "Lucida Grande", sans-serif',*/
+  text-align: center;
+  padding-top: 20%;
+}
+
+.error_code {
+  display: inline-block;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  margin: 0px;
+  margin-right: 20px;
+  padding: 10px 23px;
+  font-size: 24px;
+  font-weight: 500;
+  vertical-align: top;
+}
+
+.error_message {
+  display: inline-block;
+  height: 49px;
+  vertical-align: middle;
+  text-align: left;
+  line-height: 49px;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0px;
+  padding: 0px;
+}

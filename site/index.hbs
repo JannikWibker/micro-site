@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/static/global.css" />
-    <link rel="stylesheet" href="/static/{{file}}.css" />
-    <title>{{title}}</title>
-  </head>
-  <body>
-    <div class="main">
-      <div class="i_am_name"}>
-      <h2>{{i_am}}</h2>
-      <h1>{{name}}</h1>
-    </div>
+<div class="main">
+  <div class="i_am_name"}>
+  <h2>{{i_am}}</h2>
+  <h1>{{name}}</h1>
+</div>
 
-      {{#each links}}
-        <a class="nav" href="{{this.url}}">{{this.name}}</a>
-      {{/each}}
-    </div>
-  </body>
-</html>
+  {{#each links}}
+    <a class="nav" href="{{this.url}}">{{this.name}}</a>
+  {{/each}}
+</div>
