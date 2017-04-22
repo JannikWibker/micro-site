@@ -58,16 +58,16 @@ const sendhbs = sendhbs_(send, notfound, compiled_files, dir)
 const { index, blog, blog_post, about } = routes(send, sendhbs, () => posts)
 
 // ### starting micro programmatically
-const server = micro(router(
-  get('/', index),
-  get('/index', index),
-  get('/blog', blog),
-  get('/blog/:id', blog_post),
-  get('/about', about),
-  get('/' + static_dir + '/*', _static),
-  get('/*', notfound)
-))
-
-server.listen(port, () => {
-  console.log('Server started on port ' + port)
+module.exports = (update) => ({
+  port: port,
+  router: router(
+    get('/', index),
+    get('/index', index),
+    get('/blog', blog),
+    get('/blog/:id', blog_post),
+    get('/about', about),
+    get('/' + static_dir + '/*', _static),
+    get('/_site/reload', (res, req) => { update();return 'reloaded'}),
+    get('/*', notfound)
+  ),
 })

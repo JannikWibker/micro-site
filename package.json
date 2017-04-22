@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node index.js"
+    "start": "node start.js"
   },
   "dependencies": {
     "fs-promise": "^2.0.2",

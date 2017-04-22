@@ -7,11 +7,11 @@ git clone https://github.com/JannikWibker/micro-site.git
 ```
 ##### starting the server:
 ```
-node index.js
+node start.js
 ```
 ##### custom port:
 ```
-node index.js 3000
+node start.js 3000
 ```
 ##### adding pages:
 
@@ -37,13 +37,17 @@ return {
 // index.js
 const { ..., page } = routes(send, sendhbs, () => posts)
 
-const server = micro(router(
-  ...,
-  get('/page', page),
-  ...
-))
+module.exports = (update) => ({
+  port: port,
+  router: router(
+    ...,
+    get('/page', page),
+    ...
+  ),
+})
+
 ```
-**note**: Restarting is required after changing either javascript code or .hbs files
+**note**: Restarting (or going to '/\_site/reload') is required after changing either javascript code or .hbs files
 
 #### this is how the current page looks if you clone this repo:
 ##### Index Page:
@@ -61,4 +65,3 @@ const server = micro(router(
 ##### Error Page:
 
 ![error](https://puu.sh/vsniy/ebadc36025.png)
-
