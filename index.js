@@ -66,6 +66,8 @@ const server = micro(router(
   get('/about', about),
   get('/' + static_dir + '/*', _static),
   get('/*', notfound)
-)).listen(port, () => {
+))
+
+server.listen(port, () => {
   console.log('Server started on port ' + port)
 })
