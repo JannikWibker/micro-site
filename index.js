@@ -27,14 +27,13 @@ let posts = []
 
 // #### start fn: loads the the files and saves the data to variables
 const start = async(dir) => {
+  console.log('start fn call')
   files.push('_document.hbs', '_error.hbs')
   posts = JSON.parse(await fsp.readFile('./posts.json'))
   files.forEach(async (file, i) =>
     compiled_files[dir + '/' + file] =
       await hbs.compile(await fsp.readFile(dir + '/' + file, 'utf8')))
 }
-// ### start fn()
-start(dir)
 
 // #### 404 page
 const notfound = async (req, res) => {
@@ -58,8 +57,10 @@ const sendhbs = sendhbs_(send, notfound, compiled_files, dir)
 const { index, blog, blog_post, about } = routes(send, sendhbs, () => posts)
 
 // ### starting micro programmatically
-module.exports = (update) => ({
+module.exports = (reload, stop) => ({
   port: port,
+  date: new Date().toJSON(),
+  start: start.bind(this, dir),
   router: router(
     get('/', index),
     get('/index', index),
@@ -67,7 +68,8 @@ module.exports = (update) => ({
     get('/blog/:id', blog_post),
     get('/about', about),
     get('/' + static_dir + '/*', _static),
-    get('/_site/reload', (res, req) => { update();return 'reloaded'}),
+    get('/_site/reload', (res, req) => { reload();return 'reloaded'}),
+    get('/_site/stop', (res, req) => { stop();return 'stopped'}),
     get('/*', notfound)
   ),
 })
