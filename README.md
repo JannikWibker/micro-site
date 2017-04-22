@@ -1,14 +1,19 @@
 ## Basic Example of how a page could look:
-Index Page:
+
+### Index Page:
+<br>
 ![index](https://puu.sh/vsnil/7587e7d28f.png)
 
-Blog Page:
+### Blog Page:
+<br>
 ![blog](https://puu.sh/vsni8/869f66cd13.png)
 
-Blog Post:
+### Blog Post:
+<br>
 ![blog-post](https://puu.sh/vsnpD/7378a1da7e.png)
 
-Error Page:
+### Error Page:
+<br>
 ![error](https://puu.sh/vsniy/ebadc36025.png)
 
 
