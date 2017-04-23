@@ -2,9 +2,9 @@ module.exports = (send, sendhbs, posts) => {
 
   // #### index page
   const index = async (req, res) => {
-    sendhbs(res, '/index.hbs', {
+    sendhbs(res, '/index', {
       title: 'index',
-      file: 'index',
+      stylesheet: ['global', 'index'],
       i_am: 'im',
       name: 'Jannik',
       links: [
@@ -16,27 +16,27 @@ module.exports = (send, sendhbs, posts) => {
 
   // #### blog list page
   const blog = async (req, res) => {
-    sendhbs(res, '/blog.hbs', {
+    sendhbs(res, '/blog', {
       title: 'blog',
-      file: 'blog',
+      stylesheet: ['global', 'blog'],
       posts: posts
     })
   }
 
   // #### blog post page
   const blog_post = async (req, res) => {
-    sendhbs(res, '/blog.hbs', {
+    sendhbs(res, '/blog', {
       title: posts()[req.params.id].name,
-      file: 'blog',
+      stylesheet: ['global', 'blog'],
       post: posts()[req.params.id]
     })
   }
 
   // #### about page
   const about = async (req, res) => {
-    sendhbs(res, '/about.hbs', {
+    sendhbs(res, '/about', {
       title: 'about',
-      file: 'about',
+      stylesheet: ['global', 'about'],
     })
   }
 

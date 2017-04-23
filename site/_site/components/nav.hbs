@@ -1,0 +1,10 @@
+<div class="nav-container">
+  <h3 class="nav-title">dashboard</h3>
+  {{#each pages}}
+    {{#ifeq ../active this.url}}
+      <div class="nav-link"><a class="nav active" href="/_site/{{this.url}}">{{this.name}}</a></div>
+    {{else}}
+      <div class="nav-link"><a class="nav" href="/_site/{{this.url}}">{{this.name}}</a></div>
+    {{/ifeq}}
+  {{/each}}
+</div>

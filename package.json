@@ -1,4 +1,7 @@
 {
+  "name": "micro-site",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
     "start": "node start.js"
   },
@@ -9,9 +12,6 @@
     "microrouter": "^2.1.0",
     "mime-types": "^2.1.15"
   },
-  "name": "micro-site",
-  "version": "1.0.0",
-  "main": "index.js",
   "devDependencies": {},
   "keywords": [],
   "author": "",

@@ -1,0 +1,20 @@
+.main-container {
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh;
+  width: calc(100% - 120px);
+  float: left;
+}
+
+.main-header {
+  position: relative;
+  box-sizing: border-box;
+  margin: 21.28px 20px 36.28px 30px ;
+}
+
+.main-view {
+  height: calc(100vh - 75.56px);
+  width: calc(100vw - 150px);
+  margin-left: 30px;
+  overflow-y: scroll;
+}
